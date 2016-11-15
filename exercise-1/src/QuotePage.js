@@ -25,7 +25,13 @@ var QuotePage = React.createClass({
 		return (
 			<div className="quotePage">
 				<div>
-					<p className="instructions">Iterate through <code>this.state.quotes</code>, and create a new <code>Quote</code> component for each one</p>
+					{
+						this.state.quotes.map(function(q, i){
+							console.log(q)
+							// use map instead of forEach bc forEach doesn't return anything
+							return <Quote text={q.text} author={q.author} url={q.url} />
+						})
+					}
 				</div>
 			</div>
 		);
